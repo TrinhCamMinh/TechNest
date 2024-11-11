@@ -1,14 +1,23 @@
-import { Button } from '@/components/ui/button';
+import { Route, Routes } from 'react-router-dom';
+import { HomePage as AdminHomePage, Login, ProductDetail} from '@/pages/admin';
+import { HomePage as ClientHomePage} from '@/pages/clients';
+import { MainLayout as AdminMainLayout} from '@/layouts/admin'
+import { MainLayout as ClientMainLayout } from '@/layouts/clients';
 
 function App() {
 	return (
-		<>
-			<h1 className='text-3xl font-bold'>Welcome back Mr.MinhTrinh</h1>
-			<h2>
-				This is source code for TechNest project - <span className='underline text-blue-600 font-bold'>DMX clone</span>
-			</h2>
-			<Button>Click me</Button>
-		</>
+		<Routes>
+            <Route path='/' element={<ClientMainLayout />}>
+                <Route index element={<ClientHomePage />} />
+            </Route>
+
+            <Route path='/admin' element={<AdminMainLayout />}>
+                <Route index element={<AdminHomePage />} />
+                <Route path='detail' element={<ProductDetail />} />
+            </Route>
+
+            <Route path='/login' element={<Login />} />
+        </Routes>
 	);
 }
 
