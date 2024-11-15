@@ -25,8 +25,9 @@ import { fireBaseObject } from '@/features/product-crud';
 import { Toaster, toast } from 'sonner';
 import { FormMode } from '@/interfaces';
 import { LIST_OF_CREATABLE_PRODUCT_OPTION } from '@/constants';
-import { autoGenerateRandomID } from '@/lib/utils';
+import { ObjectGroupBy, autoGenerateRandomID } from '@/lib/utils';
 import DemoPage from '@/components/custom/payments/page';
+import { getDoc } from 'firebase/firestore';
 
 const invoices = [
   {
@@ -80,8 +81,20 @@ const HomePage = () => {
   const [selectedInsertProductType, setSelectedProductType] = useState<String | null>(null);
 
   const fetchListOfProducts = async () => {
-    const data = await fireBaseObject.getProducts();
-    setListOfProducts(data);
+    const listOfRawProductsData: any[] = await fireBaseObject.getProducts();
+    const listOfProcessedProductsData: any[] = [];
+
+    for (const item of listOfRawProductsData) {
+      const categoryRef = item.category;
+      const docSnap = await getDoc(categoryRef);
+      const category: any = docSnap.data();
+      listOfProcessedProductsData.push({ ...item, category: category.name });
+    }
+
+    const productGroupedData = ObjectGroupBy(listOfProcessedProductsData, 'category');
+    console.info("Product data after being grouped - Admin: ", productGroupedData)
+
+    setListOfProducts(listOfProcessedProductsData);
   }
 
   useEffect(() => {

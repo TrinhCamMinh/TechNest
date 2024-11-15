@@ -1,18 +1,39 @@
 import { Filter, ProductCaraousel, ProductCard } from "@/components";
 import { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Fuse from 'fuse.js';
 import { MockData } from "@/mocks/data";
 import { clientSearchOptions } from "@/configs/fuse";
 import { useDebounce } from "@/hooks";
+import { fireBaseObject } from '@/features/product-crud';
+import { getDoc } from "firebase/firestore";
+import { ObjectGroupBy } from '@/lib/utils';
+import Fuse from 'fuse.js';
 
 const HomePage = () => {
-    const [products, setProducts] = useState([1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6,])
-    const [blogs, setBlogs] = useState([1, 2, 3, 4, 5])
+    const [products, setProducts] = useState<Record<string, any>>({});
+    const [blogs, setBlogs] = useState([1, 2, 3, 4, 5]);
 
     const [searchValue, setSearchValue] = useState<string>('');
     const debouncedSearchTerm = useDebounce(searchValue, 500); // 500ms delay
     const [searchResults, setSearchResults] = useState<Array<any>>([]);
+
+    const handleFetchProducts = async () => {
+        // This data contains Ref of category field
+        const listOfRawProductsData: any[] = await fireBaseObject.getProducts();
+        const listOfProcessedProductsData: any[] = [];
+
+        for (const item of listOfRawProductsData) {
+            const categoryRef = item.category;
+            const docSnap = await getDoc(categoryRef);
+            const category: any = docSnap.data();
+            listOfProcessedProductsData.push({ ...item, category: category.name });
+        }
+
+        const productGroupedData = ObjectGroupBy(listOfProcessedProductsData, 'category');
+        console.info("Product data after being grouped: ", productGroupedData)
+
+        setProducts(productGroupedData);
+    }
 
     useEffect(() => {
         console.info(`User typing ${debouncedSearchTerm}`)
@@ -25,6 +46,10 @@ const HomePage = () => {
         }
     }, [debouncedSearchTerm]);
 
+
+    useEffect(() => {
+        handleFetchProducts();
+    }, [])
 
     return (
         <div className="flex flex-col gap-8">
@@ -59,7 +84,7 @@ const HomePage = () => {
             </div>
 
             {/* Badge Section */}
-            <div className="p-12 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
+            {/* <div className="p-12 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
                 {
                     products.map(() => (
                         <div className="avatar hover:bg-slate-300 transition-colors px-3 py-2 rounded indicator">
@@ -73,33 +98,24 @@ const HomePage = () => {
                         </div>
                     ))
                 }
-            </div>
+            </div> */}
 
-            {/* Category 1 */}
-            <div className="flex flex-col gap-4">
-                <h2 className="text-2xl font-bold capitalize">Category 1</h2>
-                <div className="grid grid-cols-4 gap-8">
-                    {
-                        products.map(() => (
-                            <ProductCard />
-                        ))
-                    }
-                </div>
-            </div>
-
-            <div className="divider uppercase">or</div>
-
-            {/* Category 2 */}
-            <div className="flex flex-col gap-4">
-                <h2 className="text-2xl font-bold capitalize">Category 2</h2>
-                <div className="grid grid-cols-4 gap-8">
-                    {
-                        products.map(() => (
-                            <ProductCard />
-                        ))
-                    }
-                </div>
-            </div>
+            {Object.keys(products).map((productCategory: string) => {
+                return (
+                    <>
+                        {products[productCategory].map((product: any) => {
+                            return (
+                                <div className="flex flex-col gap-4">
+                                    <h2 className="text-2xl font-bold capitalize">{product.category}</h2>
+                                    <div className="grid grid-cols-4 gap-8">
+                                        <ProductCard />
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </>
+                );
+            })}
 
             <div className="divider"></div>
 
@@ -189,13 +205,13 @@ const HomePage = () => {
                     <h2 className="text-2xl font-bold capitalize">People also find</h2>
                 </header>
                 <div className="p-8 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
-                    {
+                    {/* {
                         products.map(() => {
                             return (
                                 <div className="badge badge-ghost badge-lg">iPhone 15</div>
                             )
                         })
-                    }
+                    } */}
                 </div>
             </div>
         </div>

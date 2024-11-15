@@ -28,3 +28,15 @@ export const exportToCSV = (csvData: any, fileName: string) => {
   FileSaver.saveAs(data, fileName + fileExtension);
 }
 
+export const ObjectGroupBy = (array: Array<any>, groupField: string) => {
+  const result = array.reduce((acc, item) => {
+    if (acc.hasOwnProperty(item[groupField])) {
+      acc[item[groupField]] = [...acc[item[groupField]], item];
+      return acc;
+    }
+    acc[item[groupField]] = [item];
+    return acc;
+  }, {});
+  return result;
+};
+
