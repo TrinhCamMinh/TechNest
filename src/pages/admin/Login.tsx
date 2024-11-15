@@ -1,13 +1,40 @@
 import { Toaster, toast } from 'sonner';
 import { MutableRefObject, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '@/configs/firebase';
+import { ADMIN_EMAIL } from '@/constants';
 
 const Login = () => {
     const navigate = useNavigate();
-    const userEmailRef:MutableRefObject<HTMLInputElement | null> = useRef(null);
-    const userPasswordRef:MutableRefObject<HTMLInputElement | null> = useRef(null);
+    const userEmailRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+    const userPasswordRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
-    const handleLogin = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const authenticateUserWithFireAuth = (email:string, password:string) => {
+        if (!(email === ADMIN_EMAIL)) {
+            toast.error("Account don't have admin permission");
+            return;
+        }
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.info("====User info====")
+                console.log(user);
+
+                // Set user info to local storage
+                localStorage.setItem('authenticate', JSON.stringify({ email, password }))
+                navigate("/admin");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                toast.error(`Error while authenticating: ${errorCode} - ${errorMessage}`);
+            });
+        
+    }
+
+    const handleLogin = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
 
         const userEmail = userEmailRef.current?.value;
@@ -15,16 +42,12 @@ const Login = () => {
 
         console.info(`user email is ${userEmail} and password is ${userPassword}`);
 
-        if(!userEmail || !userPassword) {
+        if (!userEmail || !userPassword) {
             toast.error("Invalid user credential");
             return;
         }
 
-        console.info("user has been authenticated successfully");
-
-        // Set user info to local storage
-        localStorage.setItem('authenticate', JSON.stringify({userEmail, userPassword}))
-        navigate("/admin");
+        authenticateUserWithFireAuth(userEmail, userPassword);
     }
 
     return (
@@ -39,7 +62,7 @@ const Login = () => {
                     <div className="px-4 py-6 sm:px-8 sm:py-7">
                         <div className="text-center">
                             <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
-                            <p className="mt-2 text-base text-gray-600">Don’t have one? <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline">Create a free account</a></p>
+                            <p className="mt-2 text-base text-gray-600">Don't have one? <a href="#" title="" className="text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline">Create a free account</a></p>
                         </div>
 
                         <form className="mt-8">
@@ -82,7 +105,7 @@ const Login = () => {
                 </div>
             </div>
 
-            <Toaster richColors position="top-right"/>
+            <Toaster richColors position="top-right" />
         </section>
     )
 }

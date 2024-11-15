@@ -13,7 +13,7 @@ function App() {
 
             <Route path='/admin' element={<AdminMainLayout />}>
                 <Route index element={<AdminHomePage />} />
-                <Route path='detail' element={<ProductDetail />} />
+                <Route path='detail/:productId' element={<ProductDetail />} />
             </Route>
 
             <Route path='/login' element={<Login />} />

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <div className="navbar bg-base-300">
+        <div className="navbar bg-base-100 shadow-xl">
             <div className="navbar-start">
                 <Link className="btn btn-ghost text-xl capitalize font-bold" to="/">TechNest</Link>
             </div>
