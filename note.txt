@@ -1,0 +1,16 @@
+Admin
+    + CRUD
+    + Export data
+    + Search / Filter product data
+    + Pagination
+    + Login
+
+Client
+    + Search (debounce)
+    + Filter (debounce)
+
+Codebase
+    + useDebounce
+    + useAuthentication
+    + Strategy pattern
+    + Performance with useEffect dependency

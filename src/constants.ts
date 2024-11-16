@@ -15,6 +15,7 @@ export enum PRODUCT_TYPE {
     WATER_PURIFIER = 'water_purifier'
 }
 
+// List of product can be chosed from dropdown in Admin Home Page
 export const LIST_OF_CREATABLE_PRODUCT_OPTION = [
     {
         name: 'air cooler',
@@ -57,3 +58,63 @@ export const LIST_OF_CREATABLE_PRODUCT_OPTION = [
         value: PRODUCT_TYPE.WATER_PURIFIER
     },
 ]
+
+// All the availables filter options for products in Client Home Page
+export const FILTER_OPTIONS = {
+    BRANDS: [
+        {
+            name: 'Apple',
+            value: 'apple'
+        },
+        {
+            name: 'Samsung',
+            value: 'samsung'
+        },
+        {
+            name: 'Xiaomi',
+            value: 'xiaomi'
+        },
+        {
+            name: 'Sony',
+            value: 'sony'
+        },
+        {
+            name: 'Asus',
+            value: 'asus'
+        },
+        {
+            name: 'Lenovo',
+            value: 'lenovo'
+        },
+    ],
+    PRICES_CHIP: [
+        {
+            name: 'Below 2M',
+            value: 1
+        },
+        {
+            name: '2M - 4M',
+            value: 2
+        },
+        {
+            name: '4M - 7M',
+            value: 3
+        },
+        {
+            name: '7M - 13M',
+            value: 4
+        },
+        {
+            name: '13M - 20M',
+            value: 5
+        },
+        {
+            name: 'Above 20M',
+            value: 6
+        },
+    ],
+    PRICE_RANGE: {
+        min: 300,
+        max: 53_000_000
+    }
+}
