@@ -1,8 +1,9 @@
 import { FormMode, FormStrategy } from "@/interfaces";
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
 import { fireBaseObject } from "@/features/product-crud";
 import { useParams } from 'react-router-dom';
+import { DocumentReference, getDoc } from "firebase/firestore";
 
 export const KeyboardFormStrategy: FormStrategy = {
     renderForm: (mode: string, data: Record<string, any>) => {
@@ -16,6 +17,8 @@ export const KeyboardFormStrategy: FormStrategy = {
         const categoryRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const priceRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const adaptRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+
+        const [populatedCategory, setPopulatedCategory] = useState<any>('');
 
         const handleUpdateProduct = async () => {
             try {
@@ -59,13 +62,25 @@ export const KeyboardFormStrategy: FormStrategy = {
                 fireBaseObject.insertProduct(newData)
                     .then(() => toast.success('Insert product successfully'))
                     .catch((error: Error) => toast.error(error.message))
-            } catch(e) {
+            } catch (e) {
                 const errorMessage = (e as Error).message;
                 toast.error(`Error while create a new keyboard product`, {
                     description: errorMessage
                 })
             }
         }
+
+        const handlePopulateCategoryRef = async (categoryRef: DocumentReference) => {
+            const docSnap = await getDoc(categoryRef);
+            const populatedData = docSnap.data();
+            setPopulatedCategory(populatedData);
+        }
+
+        useEffect(() => {
+            const categoryRef: DocumentReference = data.category
+            console.log("before: ", data.category)
+            handlePopulateCategoryRef(categoryRef);
+        }, [data])
 
         return (
             <>
@@ -78,7 +93,7 @@ export const KeyboardFormStrategy: FormStrategy = {
 
                     <label className="input input-bordered flex items-center gap-2">
                         Category
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.category : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? categoryRef : undefined} />
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? populatedCategory.name : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? categoryRef : undefined} />
                     </label>
 
                     <label className="input input-bordered flex items-center gap-2">

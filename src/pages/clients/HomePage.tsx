@@ -84,9 +84,9 @@ const HomePage = () => {
             </div>
 
             {/* Badge Section */}
-            {/* <div className="p-12 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
+            <div className="p-12 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
                 {
-                    products.map(() => (
+                    blogs.map(() => (
                         <div className="avatar hover:bg-slate-300 transition-colors px-3 py-2 rounded indicator">
                             <span className="relative flex h-3 w-3 indicator-item">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -98,7 +98,7 @@ const HomePage = () => {
                         </div>
                     ))
                 }
-            </div> */}
+            </div>
 
             {Object.keys(products).map((productCategory: string) => {
                 return (
@@ -149,7 +149,7 @@ const HomePage = () => {
                     <h2 className="text-2xl font-bold capitalize">Blogs</h2>
                 </header>
                 <div className="p-8 w-full shadow-2xl rounded-md">
-                    <Tabs defaultValue="account">
+                    <Tabs defaultValue="Promotion">
                         <TabsList>
                             <TabsTrigger value="Promotion">Promotion</TabsTrigger>
                             <TabsTrigger value="Purchase consultation">Purchase consultation</TabsTrigger>
@@ -205,13 +205,13 @@ const HomePage = () => {
                     <h2 className="text-2xl font-bold capitalize">People also find</h2>
                 </header>
                 <div className="p-8 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
-                    {/* {
-                        products.map(() => {
+                    {
+                        blogs.map(() => {
                             return (
                                 <div className="badge badge-ghost badge-lg">iPhone 15</div>
                             )
                         })
-                    } */}
+                    }
                 </div>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { fireBaseObject } from "@/features/product-crud";
 import { FormMode, FormStrategy } from "@/interfaces";
+import { getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 interface ProductDetailFormProps {
@@ -12,7 +13,7 @@ const ProductDetailForm: React.FC<ProductDetailFormProps> = ({ strategy, mode, d
     const [formData, setFormData] = useState({});
 
     const handleFetchSingleProductData = async () => {
-        const data = await fireBaseObject.getSingleProduct(documentId)
+        const data:any = await fireBaseObject.getSingleProduct(documentId)
         if(!data) return;
         setFormData(data);
     }

@@ -19,15 +19,14 @@ import {
   SelectGroup
 } from "@/components/ui/select"
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FaEye, FaPencilAlt, FaTrash } from "react-icons/fa";
-import { fireBaseObject } from '@/features/product-crud';
 import { Toaster, toast } from 'sonner';
 import { FormMode } from '@/interfaces';
 import { LIST_OF_CREATABLE_PRODUCT_OPTION } from '@/constants';
-import { ObjectGroupBy, autoGenerateRandomID } from '@/lib/utils';
-import DemoPage from '@/components/custom/payments/page';
-import { getDoc } from 'firebase/firestore';
+import { autoGenerateRandomID } from '@/lib/utils';
+import ProductDataTable from '@/components/custom/ProductDataTable/page';
+import UserDataTable from '@/components/custom/UserDataTable/page'
 
 const invoices = [
   {
@@ -77,25 +76,7 @@ const invoices = [
 const HomePage = () => {
   const navigate = useNavigate();
   const generatedId: string = autoGenerateRandomID(6);
-  const [listOfProducts, setListOfProducts] = useState<any[]>([]);
   const [selectedInsertProductType, setSelectedProductType] = useState<String | null>(null);
-
-  const fetchListOfProducts = async () => {
-    const listOfRawProductsData: any[] = await fireBaseObject.getProducts();
-    const listOfProcessedProductsData: any[] = [];
-
-    for (const item of listOfRawProductsData) {
-      const categoryRef = item.category;
-      const docSnap = await getDoc(categoryRef);
-      const category: any = docSnap.data();
-      listOfProcessedProductsData.push({ ...item, category: category.name });
-    }
-
-    const productGroupedData = ObjectGroupBy(listOfProcessedProductsData, 'category');
-    console.info("Product data after being grouped - Admin: ", productGroupedData)
-
-    setListOfProducts(listOfProcessedProductsData);
-  }
 
   useEffect(() => {
     const [isAuthenticate, userData] = useAuthenticate();
@@ -104,26 +85,7 @@ const HomePage = () => {
       navigate("/login");
       return;
     }
-    fetchListOfProducts();
   }, [])
-
-  const handleDeleteProduct = () => {
-    try {
-      const isConfirm = confirm("Are you sure want to delete product");
-      if (!isConfirm) {
-        alert("user has refuse to delete product");
-        return;
-      }
-      // handle remove item from database here...
-      fireBaseObject.deleteProduct("KgY4oO38MfIDTy1Bnbqp");
-      toast.success("Delete product successfully");
-    } catch (error) {
-      const errorMessage = (error as Error).message;
-      toast.error(`Error while deleting product`, {
-        description: errorMessage
-      });
-    }
-  }
 
   const handleSelectInsertProductType = (selectedOption: string) => {
     console.log(`user has selected: ${selectedOption}`);
@@ -181,122 +143,12 @@ const HomePage = () => {
         </div>
 
         {/* Products Table */}
-        <div className="flex flex-col gap-2">
-          <header className="text-center">
-            <p className="uppercase font-bold">Products</p>
-          </header>
-          <main>
-            <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className='text-center'>ID</TableHead>
-                  <TableHead className='text-center'>Name</TableHead>
-                  <TableHead className='text-center'>Category</TableHead>
-                  <TableHead className='text-center'>Type</TableHead>
-                  <TableHead className='text-center'>Price</TableHead>
-                  <TableHead className='text-center'>CreatedAt</TableHead>
-                  <TableHead className='text-center'>UpdatedAt</TableHead>
-                  <TableHead className='text-center'>Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {listOfProducts.map((product) => (
-                  <TableRow key={product.id}>
-                    <TableCell className="text-center font-medium">{product.id}</TableCell>
-                    <TableCell className='text-center'>{product.name}</TableCell>
-                    <TableCell className='text-center'>{product.category}</TableCell>
-                    <TableCell className='text-center'>{product.product_type}</TableCell>
-                    <TableCell className='text-center'>{product.price}</TableCell>
-                    <TableCell className='text-center'>{product.createdAt.toDate().toDateString()}</TableCell>
-                    <TableCell className='text-center'>{product.updatedAt.toDate().toDateString()}</TableCell>
-                    <TableCell className='text-center'>
-                      <div className='flex flex-row justify-center gap-10'>
-                        <Link to={`detail/${product.id}?mode=${FormMode.VIEW.toLowerCase()}&product_type=${product.product_type}`}>
-                          <button className="tooltip tooltip-success" data-tip="view">
-                            <FaEye className='w-7 h-7 text-green-400' />
-                          </button>
-                        </Link>
-                        <Link to={`detail/${product.id}?mode=${FormMode.UPDATE.toLowerCase()}&product_type=${product.product_type}`}>
-                          <button className="tooltip tooltip-warning" data-tip="edit">
-                            <FaPencilAlt className='w-7 h-7 text-yellow-400' />
-                          </button>
-                        </Link>
-                        <button className="tooltip tooltip-error" data-tip="delete" onClick={handleDeleteProduct}>
-                          <FaTrash className='w-7 h-7 text-red-400' />
-                        </button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TableCell colSpan={7} className='uppercase font-bold'>total no. of product</TableCell>
-                  <TableCell className='text-center'>$2,500.00</TableCell>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </main>
-        </div>
+        <ProductDataTable />
 
         <div className="divider"></div>
 
         {/* Users Table */}
-        <div className="flex flex-col gap-2">
-          <header className="text-center">
-            <p className="uppercase font-bold">users</p>
-          </header>
-          <main>
-            <Table>
-              <TableCaption>A list of your recent invoices.</TableCaption>
-              <TableHeader>
-                <TableRow>
-                  <TableHead className='text-center'>ID</TableHead>
-                  <TableHead className='text-center'>Name</TableHead>
-                  <TableHead className='text-center'>Category</TableHead>
-                  <TableHead className='text-center'>CreatedAt</TableHead>
-                  <TableHead className='text-center'>UpdatedAt</TableHead>
-                  <TableHead className='text-center'>Actions</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {invoices.map((invoice) => (
-                  <TableRow key={invoice.invoice}>
-                    <TableCell className="text-center font-medium">{invoice.invoice}</TableCell>
-                    <TableCell className='text-center'>{invoice.paymentStatus}</TableCell>
-                    <TableCell className='text-center'>{invoice.paymentMethod}</TableCell>
-                    <TableCell className='text-center'>{invoice.totalAmount}</TableCell>
-                    <TableCell className='text-center'>{invoice.totalAmount}</TableCell>
-                    <TableCell className='text-center'>
-                      <div className='flex flex-row justify-center gap-10'>
-                        <button className="tooltip tooltip-success" data-tip="view">
-                          <FaEye className='w-7 h-7 text-green-400' />
-                        </button>
-                        <button className="tooltip tooltip-warning" data-tip="edit">
-                          <FaPencilAlt className='w-7 h-7 text-yellow-400' />
-                        </button>
-                        <button className="tooltip tooltip-error" data-tip="delete">
-                          <FaTrash className='w-7 h-7 text-red-400' />
-                        </button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TableCell colSpan={5} className='uppercase font-bold'>total no. of product</TableCell>
-                  <TableCell className='text-center'>$2,500.00</TableCell>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </main>
-        </div>
-
-        <div className="divider"></div>
-
-        <DemoPage />
+        <UserDataTable />
       </div>
     </>
   )
