@@ -1,0 +1,3477 @@
+{
+  "id": "0",
+  "name": "E-SHOP DATABASE MODELS",
+  "createdAt": "2024-11-11T00:05:32.190Z",
+  "updatedAt": "2024-11-11T00:05:32.190Z",
+  "databaseType": "postgresql",
+  "tables": [
+    {
+      "id": "1",
+      "name": "AIR_COOLER",
+      "x": 571.7179730409623,
+      "y": -500.02790876975035,
+      "fields": [
+        {
+          "id": "2",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731139924786
+        },
+        {
+          "id": "3",
+          "name": "cooler_range",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140367847
+        },
+        {
+          "id": "4",
+          "name": "capacity",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140398185
+        },
+        {
+          "id": "5",
+          "name": "tank_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140410361
+        },
+        {
+          "id": "6",
+          "name": "max_noise_level",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140422554
+        },
+        {
+          "id": "7",
+          "name": "control_panel",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140445690
+        },
+        {
+          "id": "8",
+          "name": "brand_of",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140453082
+        },
+        {
+          "id": "9",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140461882
+        },
+        {
+          "id": "10",
+          "name": "launch_year",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140483666
+        },
+        {
+          "id": "11",
+          "name": "wind_speed",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140503866
+        },
+        {
+          "id": "12",
+          "name": "wind_mode",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140511170
+        },
+        {
+          "id": "13",
+          "name": "wind_rate",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140531329
+        },
+        {
+          "id": "14",
+          "name": "utilities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140555594
+        },
+        {
+          "id": "15",
+          "name": "size_weight",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140563993
+        },
+        {
+          "id": "16",
+          "name": "brand",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140575282
+        },
+        {
+          "id": "17",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140596178
+        },
+        {
+          "id": "18",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140688658
+        },
+        {
+          "id": "19",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140801530
+        }
+      ],
+      "indexes": [],
+      "color": "#4dee8a",
+      "createdAt": 1731139924786,
+      "isView": false,
+      "width": 450,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "20",
+      "name": "CAMERA",
+      "x": -1375.4215338630506,
+      "y": -46.76647458550954,
+      "fields": [
+        {
+          "id": "21",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731144145425
+        },
+        {
+          "id": "22",
+          "name": "resolution",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144157050
+        },
+        {
+          "id": "23",
+          "name": "viewing_angle",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144166665
+        },
+        {
+          "id": "24",
+          "name": "rotate_angle",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144205545
+        },
+        {
+          "id": "25",
+          "name": "storage_size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144214345
+        },
+        {
+          "id": "26",
+          "name": "connect",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144227897
+        },
+        {
+          "id": "27",
+          "name": "infrared_vision",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144235065
+        },
+        {
+          "id": "28",
+          "name": "os_support",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144324913
+        },
+        {
+          "id": "29",
+          "name": "manage_app",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144339153
+        },
+        {
+          "id": "30",
+          "name": "utilities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144367761
+        },
+        {
+          "id": "31",
+          "name": "wifi",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144376209
+        },
+        {
+          "id": "32",
+          "name": "install_location",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144391921
+        },
+        {
+          "id": "33",
+          "name": "number_of_connect_device",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144405273
+        },
+        {
+          "id": "34",
+          "name": "is_two_ways_dimension",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144421137
+        },
+        {
+          "id": "35",
+          "name": "is_included_adapter",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144449984
+        },
+        {
+          "id": "36",
+          "name": "heat",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144476608
+        },
+        {
+          "id": "37",
+          "name": "input_electricity",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144489760
+        },
+        {
+          "id": "38",
+          "name": "size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144508705
+        },
+        {
+          "id": "39",
+          "name": "brand_of",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144517384
+        },
+        {
+          "id": "40",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144525057
+        },
+        {
+          "id": "41",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144533425
+        },
+        {
+          "id": "42",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144544685
+        },
+        {
+          "id": "43",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144551497
+        },
+        {
+          "id": "44",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144556241
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "createdAt": 1731144145425,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "45",
+      "name": "CATEGORY",
+      "x": -355.03350994304674,
+      "y": 409.15131483582,
+      "fields": [
+        {
+          "id": "46",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731137168298
+        },
+        {
+          "id": "47",
+          "name": "name",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1731137252338
+        }
+      ],
+      "indexes": [],
+      "color": "#c05dcf",
+      "createdAt": 1731137168299,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "48",
+      "name": "HEADPHONE",
+      "x": -1373.7322096499015,
+      "y": 389.72628671616684,
+      "fields": [
+        {
+          "id": "49",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731143396104
+        },
+        {
+          "id": "50",
+          "name": "battery_life",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143415809
+        },
+        {
+          "id": "51",
+          "name": "charging_case_battery_life",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143444785
+        },
+        {
+          "id": "52",
+          "name": "charge_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143474857
+        },
+        {
+          "id": "53",
+          "name": "sound_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143517049
+        },
+        {
+          "id": "54",
+          "name": "adapt",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143532153
+        },
+        {
+          "id": "55",
+          "name": "utilities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143542129
+        },
+        {
+          "id": "56",
+          "name": "number_of_connect_device",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143551489
+        },
+        {
+          "id": "57",
+          "name": "connect_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143573889
+        },
+        {
+          "id": "58",
+          "name": "control",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143585137
+        },
+        {
+          "id": "59",
+          "name": "control_commands",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143591169
+        },
+        {
+          "id": "60",
+          "name": "size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143614937
+        },
+        {
+          "id": "61",
+          "name": "weight",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143627914
+        },
+        {
+          "id": "62",
+          "name": "brand_of",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143638329
+        },
+        {
+          "id": "63",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143645817
+        },
+        {
+          "id": "64",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143659161
+        },
+        {
+          "id": "65",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143798424
+        },
+        {
+          "id": "66",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143805688
+        },
+        {
+          "id": "67",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1731143812704
+        }
+      ],
+      "indexes": [],
+      "color": "#8eb7ff",
+      "createdAt": 1731143396104,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "68",
+      "name": "KEYBOARD",
+      "x": -1382.3910052183912,
+      "y": -541.4250784527582,
+      "fields": [
+        {
+          "id": "69",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731143791488
+        },
+        {
+          "id": "70",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143879282
+        },
+        {
+          "id": "71",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143887960
+        },
+        {
+          "id": "72",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143896281
+        },
+        {
+          "id": "73",
+          "name": "adapt",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143908857
+        },
+        {
+          "id": "74",
+          "name": "connect_way",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143925041
+        },
+        {
+          "id": "75",
+          "name": "connect_distance",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143939513
+        },
+        {
+          "id": "76",
+          "name": "keyboard_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143955073
+        },
+        {
+          "id": "77",
+          "name": "keycaps_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143967713
+        },
+        {
+          "id": "78",
+          "name": "other_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143977745
+        },
+        {
+          "id": "79",
+          "name": "size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143992921
+        },
+        {
+          "id": "80",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144069409
+        },
+        {
+          "id": "81",
+          "name": "brand_of",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144080419
+        },
+        {
+          "id": "82",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731144089649
+        }
+      ],
+      "indexes": [
+        {
+          "id": "83",
+          "name": "index_1",
+          "fieldIds": [
+            "00xmzd9l5eu4jw5lvb7isjp01"
+          ],
+          "unique": false,
+          "createdAt": 1731144741671
+        }
+      ],
+      "color": "#ff6b8a",
+      "createdAt": 1731143791488,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "84",
+      "name": "LAPTOP",
+      "x": 548.5361485339652,
+      "y": 967.7476779114236,
+      "fields": [
+        {
+          "id": "85",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731142673586
+        },
+        {
+          "id": "86",
+          "name": "cpu_processer",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142686345
+        },
+        {
+          "id": "87",
+          "name": "number_of_processer_cores",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142702873
+        },
+        {
+          "id": "88",
+          "name": "number_of_processer_thread",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142725209
+        },
+        {
+          "id": "89",
+          "name": "cpu_speed",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142736441
+        },
+        {
+          "id": "90",
+          "name": "max_cpu_speed",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142744777
+        },
+        {
+          "id": "91",
+          "name": "buffer_memory",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142754129
+        },
+        {
+          "id": "92",
+          "name": "ram",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142771545
+        },
+        {
+          "id": "93",
+          "name": "ram_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142776123
+        },
+        {
+          "id": "94",
+          "name": "bus_ram_speed",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142788506
+        },
+        {
+          "id": "95",
+          "name": "ram_support",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142803593
+        },
+        {
+          "id": "96",
+          "name": "hard_disk",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142826225
+        },
+        {
+          "id": "97",
+          "name": "screen_size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142862177
+        },
+        {
+          "id": "98",
+          "name": "screen_resolution",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142871305
+        },
+        {
+          "id": "99",
+          "name": "screen_refresh_rate",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142884681
+        },
+        {
+          "id": "100",
+          "name": "color_coverage",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142900089
+        },
+        {
+          "id": "101",
+          "name": "screen_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142968482
+        },
+        {
+          "id": "102",
+          "name": "sound_card",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142989945
+        },
+        {
+          "id": "103",
+          "name": "sound_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142999185
+        },
+        {
+          "id": "104",
+          "name": "communicate_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143012057
+        },
+        {
+          "id": "105",
+          "name": "wireless_connect",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143069754
+        },
+        {
+          "id": "106",
+          "name": "webcam",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143097921
+        },
+        {
+          "id": "107",
+          "name": "other_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143115009
+        },
+        {
+          "id": "108",
+          "name": "is_keyboard_led",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143126809
+        },
+        {
+          "id": "109",
+          "name": "size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143146209
+        },
+        {
+          "id": "110",
+          "name": "weight",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143161521
+        },
+        {
+          "id": "111",
+          "name": "material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143169305
+        },
+        {
+          "id": "112",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143184033
+        },
+        {
+          "id": "113",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143189689
+        },
+        {
+          "id": "114",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731143195529
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "createdAt": 1731142673586,
+      "isView": false,
+      "width": 450,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "115",
+      "name": "MOBILE_PHONE",
+      "x": 579.7798192290784,
+      "y": -44.152311402866786,
+      "fields": [
+        {
+          "id": "116",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731140618122
+        },
+        {
+          "id": "117",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140812602
+        },
+        {
+          "id": "118",
+          "name": "price",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140821802
+        },
+        {
+          "id": "119",
+          "name": "os",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140830554
+        },
+        {
+          "id": "120",
+          "name": "cpu_processor",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140839482
+        },
+        {
+          "id": "121",
+          "name": "cpu_speed",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140853354
+        },
+        {
+          "id": "122",
+          "name": "gpu_processor",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140878875
+        },
+        {
+          "id": "123",
+          "name": "ram",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140900914
+        },
+        {
+          "id": "124",
+          "name": "storage_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140908946
+        },
+        {
+          "id": "125",
+          "name": "available_storage_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140922754
+        },
+        {
+          "id": "126",
+          "name": "is_contact_list_limit",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140944330
+        },
+        {
+          "id": "127",
+          "name": "back_camera_resolution",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141001417
+        },
+        {
+          "id": "128",
+          "name": "back_camera_mode",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141014282
+        },
+        {
+          "id": "129",
+          "name": "is_back_camera_flash",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141054482
+        },
+        {
+          "id": "130",
+          "name": "back_camera_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141075290
+        },
+        {
+          "id": "131",
+          "name": "front_camera_resolution",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141098426
+        },
+        {
+          "id": "132",
+          "name": "front_camera_functionlities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141113474
+        },
+        {
+          "id": "133",
+          "name": "screen_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141218106
+        },
+        {
+          "id": "134",
+          "name": "screen_resolution",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141233546
+        },
+        {
+          "id": "135",
+          "name": "screen_size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141248618
+        },
+        {
+          "id": "136",
+          "name": "max_brightness",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141259276
+        },
+        {
+          "id": "137",
+          "name": "touch_glass",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141294763
+        },
+        {
+          "id": "138",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141345066
+        },
+        {
+          "id": "139",
+          "name": "battery_size",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141376458
+        },
+        {
+          "id": "140",
+          "name": "battery_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141392282
+        },
+        {
+          "id": "141",
+          "name": "max_charge_support",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141406418
+        },
+        {
+          "id": "142",
+          "name": "battery_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141428090
+        },
+        {
+          "id": "143",
+          "name": "advance_security",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141480634
+        },
+        {
+          "id": "144",
+          "name": "special_functionality",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141496530
+        },
+        {
+          "id": "145",
+          "name": "water_dust_resistance",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141526745
+        },
+        {
+          "id": "146",
+          "name": "record",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141541553
+        },
+        {
+          "id": "147",
+          "name": "movie",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141550121
+        },
+        {
+          "id": "148",
+          "name": "music",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141561026
+        },
+        {
+          "id": "149",
+          "name": "internet",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141571474
+        },
+        {
+          "id": "150",
+          "name": "sim",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141582905
+        },
+        {
+          "id": "151",
+          "name": "wifi",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141588946
+        },
+        {
+          "id": "152",
+          "name": "gps",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141597713
+        },
+        {
+          "id": "153",
+          "name": "bluetooth",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141604314
+        },
+        {
+          "id": "154",
+          "name": "charge_connect_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141612490
+        },
+        {
+          "id": "155",
+          "name": "headphone_jack",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141627618
+        },
+        {
+          "id": "156",
+          "name": "other_ports",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141633588
+        },
+        {
+          "id": "157",
+          "name": "design",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141649074
+        },
+        {
+          "id": "158",
+          "name": "material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141656475
+        },
+        {
+          "id": "159",
+          "name": "size_weight",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141666258
+        },
+        {
+          "id": "160",
+          "name": "launch_year",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731141676730
+        }
+      ],
+      "indexes": [],
+      "color": "#9ef07a",
+      "createdAt": 1731140618122,
+      "isView": false,
+      "width": 450,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "161",
+      "name": "REFRIGERATOR",
+      "x": -1380.0950749188376,
+      "y": 1480.8533872537353,
+      "fields": [
+        {
+          "id": "162",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731138723106
+        },
+        {
+          "id": "163",
+          "name": "tpye_of_refrigerator",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138914146
+        },
+        {
+          "id": "164",
+          "name": "usable_capacity",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138947578
+        },
+        {
+          "id": "165",
+          "name": "overall_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138980170
+        },
+        {
+          "id": "166",
+          "name": "freezer_capicity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139015938
+        },
+        {
+          "id": "167",
+          "name": "refrigerator_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139032698
+        },
+        {
+          "id": "168",
+          "name": "material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139055090
+        },
+        {
+          "id": "169",
+          "name": "door_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139066810
+        },
+        {
+          "id": "170",
+          "name": "shelf_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139084370
+        },
+        {
+          "id": "171",
+          "name": "gas_pipe_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139107571
+        },
+        {
+          "id": "172",
+          "name": "launch_year",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139127595
+        },
+        {
+          "id": "173",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139139290
+        },
+        {
+          "id": "174",
+          "name": "power_consumption",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139161634
+        },
+        {
+          "id": "175",
+          "name": "enegy_save_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139186283
+        },
+        {
+          "id": "176",
+          "name": "cool_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139225219
+        },
+        {
+          "id": "177",
+          "name": "food_preservation_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139242019
+        },
+        {
+          "id": "178",
+          "name": "antibacterial_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139277772
+        },
+        {
+          "id": "179",
+          "name": "utilities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139350019
+        },
+        {
+          "id": "180",
+          "name": "is_consume_external_water",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139361746
+        },
+        {
+          "id": "181",
+          "name": "size",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139396434
+        },
+        {
+          "id": "182",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139411146
+        },
+        {
+          "id": "183",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139539634
+        },
+        {
+          "id": "184",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140674482
+        },
+        {
+          "id": "185",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140782042
+        }
+      ],
+      "indexes": [],
+      "color": "#8eb7ff",
+      "createdAt": 1731138723106,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "186",
+      "name": "TABLET",
+      "x": -1377.559889578699,
+      "y": 900.6217209167643,
+      "fields": [
+        {
+          "id": "187",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731142070761
+        },
+        {
+          "id": "188",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142096009
+        },
+        {
+          "id": "189",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142101457
+        },
+        {
+          "id": "190",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142112737
+        },
+        {
+          "id": "191",
+          "name": "display_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142118881
+        },
+        {
+          "id": "192",
+          "name": "resolution",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142142393
+        },
+        {
+          "id": "193",
+          "name": "wide_screen",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142152513
+        },
+        {
+          "id": "194",
+          "name": "os",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142168433
+        },
+        {
+          "id": "195",
+          "name": "cpu_processer",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142178569
+        },
+        {
+          "id": "196",
+          "name": "cpu_speed",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142191993
+        },
+        {
+          "id": "197",
+          "name": "gpu_processor",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142203777
+        },
+        {
+          "id": "198",
+          "name": "ram",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142219403
+        },
+        {
+          "id": "199",
+          "name": "storage_capacity",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142232873
+        },
+        {
+          "id": "200",
+          "name": "available_storage_capacity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142248955
+        },
+        {
+          "id": "201",
+          "name": "back_camera_resolution",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142268465
+        },
+        {
+          "id": "202",
+          "name": "back_camera_mode",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142319185
+        },
+        {
+          "id": "203",
+          "name": "back_camera_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142335890
+        },
+        {
+          "id": "204",
+          "name": "front_camera_resolution",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142357457
+        },
+        {
+          "id": "205",
+          "name": "front_camera_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142373353
+        },
+        {
+          "id": "206",
+          "name": "call_mode",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142385505
+        },
+        {
+          "id": "207",
+          "name": "wifi",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142399481
+        },
+        {
+          "id": "208",
+          "name": "gps",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142406265
+        },
+        {
+          "id": "209",
+          "name": "bluetooth",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142414089
+        },
+        {
+          "id": "210",
+          "name": "charge_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142421921
+        },
+        {
+          "id": "211",
+          "name": "headphone_jack",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142434185
+        },
+        {
+          "id": "212",
+          "name": "special_functionalities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142443529
+        },
+        {
+          "id": "213",
+          "name": "battery_capacity",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142454601
+        },
+        {
+          "id": "214",
+          "name": "battery_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142466337
+        },
+        {
+          "id": "215",
+          "name": "max_support_charge",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142479289
+        },
+        {
+          "id": "216",
+          "name": "charge_with_device",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731142506649
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6363",
+      "createdAt": 1731142070761,
+      "isView": false,
+      "width": 337,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "217",
+      "name": "TELEVISION",
+      "x": 581.7586449401967,
+      "y": 415.5474384470838,
+      "fields": [
+        {
+          "id": "218",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731137353738
+        },
+        {
+          "id": "219",
+          "name": "type_of_television",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137661074
+        },
+        {
+          "id": "220",
+          "name": "screen_size",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137867362
+        },
+        {
+          "id": "221",
+          "name": "resoulution",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137881931
+        },
+        {
+          "id": "222",
+          "name": "type_of_screen",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137892881
+        },
+        {
+          "id": "223",
+          "name": "os",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137931139
+        },
+        {
+          "id": "224",
+          "name": "base_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731137949331
+        },
+        {
+          "id": "225",
+          "name": "bezel_material",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138075811
+        },
+        {
+          "id": "226",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138107427
+        },
+        {
+          "id": "227",
+          "name": "launch_year",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138136962
+        },
+        {
+          "id": "228",
+          "name": "display_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138197338
+        },
+        {
+          "id": "229",
+          "name": "processer",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138229770
+        },
+        {
+          "id": "230",
+          "name": "refresh_rate",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138270586
+        },
+        {
+          "id": "231",
+          "name": "sound_techonology",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138330875
+        },
+        {
+          "id": "232",
+          "name": "number_of_speakers",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138344556
+        },
+        {
+          "id": "233",
+          "name": "is_connect_tv_speaker",
+          "type": {
+            "name": "boolean",
+            "id": "boolean"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138374523
+        },
+        {
+          "id": "234",
+          "name": "internet_connection",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138395091
+        },
+        {
+          "id": "235",
+          "name": "wireless_connection",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138427107
+        },
+        {
+          "id": "236",
+          "name": "usb",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138438514
+        },
+        {
+          "id": "237",
+          "name": "sound_display_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138445794
+        },
+        {
+          "id": "238",
+          "name": "sound_export_port",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138461434
+        },
+        {
+          "id": "239",
+          "name": "stand_size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138484018
+        },
+        {
+          "id": "240",
+          "name": "stand_weight",
+          "type": {
+            "name": "bigint",
+            "id": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138513442
+        },
+        {
+          "id": "241",
+          "name": "without_stand_size",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138544362
+        },
+        {
+          "id": "242",
+          "name": "without_stand_weight",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138599706
+        },
+        {
+          "id": "243",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138619154
+        },
+        {
+          "id": "244",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731138800988
+        },
+        {
+          "id": "245",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140663730
+        },
+        {
+          "id": "246",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140742370,
+          "comments": "FK"
+        }
+      ],
+      "indexes": [],
+      "color": "#42e0c0",
+      "createdAt": 1731137353738,
+      "isView": false,
+      "width": 450,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "247",
+      "name": "WATER_PURIFIER",
+      "x": 555.4502440943672,
+      "y": 1500.5406522769633,
+      "fields": [
+        {
+          "id": "248",
+          "name": "id",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1731139507114
+        },
+        {
+          "id": "249",
+          "name": "install_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139584554
+        },
+        {
+          "id": "250",
+          "name": "machine_type",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139602474
+        },
+        {
+          "id": "251",
+          "name": "purify_technology",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139625226
+        },
+        {
+          "id": "252",
+          "name": "antibacterial",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139644362
+        },
+        {
+          "id": "253",
+          "name": "tank_capicity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139664082
+        },
+        {
+          "id": "254",
+          "name": "filtration_discharge_ratio",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139685706
+        },
+        {
+          "id": "255",
+          "name": "filtration_capicity",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139721730
+        },
+        {
+          "id": "256",
+          "name": "electric_consumption_average",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139744434
+        },
+        {
+          "id": "257",
+          "name": "water_heat_publication",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139766506
+        },
+        {
+          "id": "258",
+          "name": "water_heat_reality",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139785786
+        },
+        {
+          "id": "259",
+          "name": "water_pressure_required",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139815426
+        },
+        {
+          "id": "260",
+          "name": "pump_manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139849146
+        },
+        {
+          "id": "261",
+          "name": "launch_year",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139886138
+        },
+        {
+          "id": "262",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139893418
+        },
+        {
+          "id": "263",
+          "name": "manufacture_place",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139901082
+        },
+        {
+          "id": "264",
+          "name": "number_of_discharge_cores",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139929154
+        },
+        {
+          "id": "265",
+          "name": "number_of_raw_filter_cores",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139954698
+        },
+        {
+          "id": "266",
+          "name": "number_of_ro_nano_uf_filter_core",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731139983042
+        },
+        {
+          "id": "267",
+          "name": "number_of_functionality_filter_cores",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140003186
+        },
+        {
+          "id": "268",
+          "name": "cooler_system",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140048970
+        },
+        {
+          "id": "269",
+          "name": "pump_system",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140064362
+        },
+        {
+          "id": "270",
+          "name": "languge",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140077826
+        },
+        {
+          "id": "271",
+          "name": "control_panel",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140084690
+        },
+        {
+          "id": "272",
+          "name": "utilities",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140105626
+        },
+        {
+          "id": "273",
+          "name": "size_weight",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140115910
+        },
+        {
+          "id": "274",
+          "name": "warranty_period",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140125765
+        },
+        {
+          "id": "275",
+          "name": "brand",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140152730
+        },
+        {
+          "id": "276",
+          "name": "images",
+          "type": {
+            "name": "array",
+            "id": "array"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140161850
+        },
+        {
+          "id": "277",
+          "name": "price",
+          "type": {
+            "id": "bigint",
+            "name": "bigint"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140681619
+        },
+        {
+          "id": "278",
+          "name": "category",
+          "type": {
+            "name": "text",
+            "id": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1731140790314
+        }
+      ],
+      "indexes": [],
+      "color": "#ff6b8a",
+      "createdAt": 1731139507114,
+      "isView": false,
+      "width": 450,
+      "diagramId": "5f69arlo4ex0"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "279",
+      "name": "AIR_COOLER_capacity_fk",
+      "sourceTableId": "1",
+      "targetTableId": "45",
+      "sourceFieldId": "4",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144852208,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "280",
+      "name": "HEADPHONE_category_fk",
+      "sourceTableId": "48",
+      "targetTableId": "45",
+      "sourceFieldId": "66",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144782511,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "281",
+      "name": "KEYBOARD_category_fk",
+      "sourceTableId": "68",
+      "targetTableId": "45",
+      "sourceFieldId": "70",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144763375,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "282",
+      "name": "LAPTOP_category_fk",
+      "sourceTableId": "84",
+      "targetTableId": "45",
+      "sourceFieldId": "112",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144878056,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "283",
+      "name": "MOBILE_PHONE_category_fk",
+      "sourceTableId": "115",
+      "targetTableId": "45",
+      "sourceFieldId": "117",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144858704,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "284",
+      "name": "REFRIGERATOR_category_fk",
+      "sourceTableId": "161",
+      "targetTableId": "45",
+      "sourceFieldId": "185",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144818271,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "285",
+      "name": "TABLET_category_fk",
+      "sourceTableId": "186",
+      "targetTableId": "45",
+      "sourceFieldId": "189",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144795071,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "286",
+      "name": "TELEVISION_category_fk",
+      "sourceTableId": "217",
+      "targetTableId": "45",
+      "sourceFieldId": "246",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144866728,
+      "diagramId": "5f69arlo4ex0"
+    },
+    {
+      "id": "287",
+      "name": "WATER_PURIFIER_category_fk",
+      "sourceTableId": "247",
+      "targetTableId": "45",
+      "sourceFieldId": "278",
+      "targetFieldId": "47",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1731144888656,
+      "diagramId": "5f69arlo4ex0"
+    }
+  ],
+  "dependencies": []
+}

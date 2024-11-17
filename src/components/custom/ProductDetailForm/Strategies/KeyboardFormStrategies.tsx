@@ -25,10 +25,18 @@ export const KeyboardFormStrategy: FormStrategy = {
         const idRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const priceRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const adaptRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const connectWayRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const connectDistanceRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const keyboardTypeRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const keycapsMaterialRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const otherFunctionalitiesRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const sizeRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const manufacturePlaceRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const brandOfRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const brandRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
         const [selectedCategory, setSelectedCategory] = useState<string>('');
         const [categiesList, setCategiesList] = useState<Array<Record<string, any>>>([]);
-        const [populatedCategory, setPopulatedCategory] = useState<Record<string, any>>({});
 
         const handleGetDocumentRef = (collectionName: string, documentId: string): DocumentReference => {
             return doc(db, collectionName, documentId);
@@ -50,6 +58,14 @@ export const KeyboardFormStrategy: FormStrategy = {
                     category: categoryRef,
                     price: priceRef.current?.value,
                     adapt: adaptRef.current?.value,
+                    connect_way: connectWayRef.current?.value,
+                    connect_dinstance: connectDistanceRef.current?.value,
+                    keyboard_type: keyboardTypeRef.current?.value,
+                    keycaps_material: keycapsMaterialRef.current?.value,
+                    other_functionalities: otherFunctionalitiesRef.current?.value,
+                    size: sizeRef.current?.value,
+                    manufacture_place: manufacturePlaceRef.current?.value,
+                    brand_of: brandOfRef.current?.value,
                 };
 
                 console.info(`Updating ${productId}`, newData);
@@ -75,7 +91,18 @@ export const KeyboardFormStrategy: FormStrategy = {
                     category: categoryRef,
                     price: priceRef.current?.value,
                     adapt: adaptRef.current?.value,
+                    connect_way: connectWayRef.current?.value,
+                    connect_dinstance: connectDistanceRef.current?.value,
+                    keyboard_type: keyboardTypeRef.current?.value,
+                    keycaps_material: keycapsMaterialRef.current?.value,
+                    other_functionalities: otherFunctionalitiesRef.current?.value,
+                    size: sizeRef.current?.value,
+                    manufacture_place: manufacturePlaceRef.current?.value,
+                    brand_of: brandOfRef.current?.value,
+                    product_type: 'keyboard'
                 };
+
+                console.info("Inserting new keyboard product: " + JSON.stringify(newData));
 
                 fireBaseObject.insertProduct(newData)
                     .then(() => toast.success('Insert product successfully'))
@@ -114,16 +141,8 @@ export const KeyboardFormStrategy: FormStrategy = {
 
         const handlePopulateCategoryRef = async (categoryRef: DocumentReference) => {
             const docSnap = await getDoc(categoryRef);
-            const populatedData = docSnap.data();
             const docID: string = docSnap.id;
-
-            const obj = {
-                ...populatedData,
-                id: docID
-            }
-
             setSelectedCategory(docID);
-            setPopulatedCategory(obj);
         }
 
         useEffect(() => {
@@ -146,12 +165,57 @@ export const KeyboardFormStrategy: FormStrategy = {
 
                     <label className="input input-bordered flex items-center gap-2">
                         Price
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.price : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
+                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
                     </label>
 
                     <label className="input input-bordered flex items-center gap-2">
                         Adapt
                         <input type="text" defaultValue={isPrefilledDataFromDb ? data.adapt : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? adaptRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Connect Way
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_way : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectWayRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Connect Distance
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_dinstance : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectDistanceRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Keyborad Type
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.keyboard_type : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keyboardTypeRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Keycaps Material
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.keycaps_material : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keycapsMaterialRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Other functionalities
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.other_functionalities : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? otherFunctionalitiesRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Size
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? sizeRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Manufacture Place
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.manufacture_place : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? manufacturePlaceRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Brand of
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand_of : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandOfRef : undefined} />
+                    </label>
+
+                    <label className="input input-bordered flex items-center gap-2">
+                        Brand
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandRef : undefined} />
                     </label>
 
                     <Select
