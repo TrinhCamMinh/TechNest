@@ -1,6 +1,7 @@
 export const ADMIN_EMAIL = 'admin@gmail.com';
 
 export const PRODUCT_COLLECTION_NAME = 'Products';
+export const CATEGORY_COLLECTION_NAME = 'Categories';
 
 export enum PRODUCT_TYPE {
     AIR_COOLER = 'air_cooler',
