@@ -1,18 +1,17 @@
 import { Filter, ProductCaraousel, ProductCard } from "@/components";
 import { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MockData } from "@/mocks/data";
 import { clientSearchOptions } from "@/configs/fuse";
 import { useDebounce } from "@/hooks";
 import { fireBaseObject } from '@/features/product-crud';
 import { getDoc } from "firebase/firestore";
 import { ObjectGroupBy } from '@/lib/utils';
 import Fuse from 'fuse.js';
+import { PRODUCT_BADGE_LIST, ALSO_FIND_KEYWORDS, BLOGS_LIST } from "@/constants";
 
 const HomePage = () => {
     const [products, setProducts] = useState<Record<string, any>>({});
-    const [blogs, setBlogs] = useState([1, 2, 3, 4, 5]);
-
+    const [raw, setRaw] = useState<any[]>([]);
     const [searchValue, setSearchValue] = useState<string>('');
     const debouncedSearchTerm = useDebounce(searchValue, 500); // 500ms delay
     const [searchResults, setSearchResults] = useState<Array<any>>([]);
@@ -32,20 +31,23 @@ const HomePage = () => {
         const productGroupedData = ObjectGroupBy(listOfProcessedProductsData, 'category');
         console.info("Product data after being grouped: ", productGroupedData)
 
+        setRaw(listOfProcessedProductsData);
         setProducts(productGroupedData);
     }
 
     useEffect(() => {
-        console.info(`User typing ${debouncedSearchTerm}`)
+        console.info(`User is searching for ${debouncedSearchTerm}`)
+
         if (debouncedSearchTerm) {
-            const fuse = new Fuse(MockData.products, clientSearchOptions);
-            const result = fuse.search('tion');
+            const fuse = new Fuse(raw, clientSearchOptions);
+            const result = fuse.search(debouncedSearchTerm);
+
+            console.info('search result ', result);
             setSearchResults(result); // Update the search results with Fuse.js output
         } else {
             setSearchResults([]); // Clear results if search term is empty
         }
     }, [debouncedSearchTerm]);
-
 
     useEffect(() => {
         handleFetchProducts();
@@ -73,8 +75,12 @@ const HomePage = () => {
                     </label>
 
                     {/* Search results container */}
-                    <div className="bg-white shadow-2xl w-full h-fit absolute mt-4 rounded p-4 z-10 invisible">
-                        {searchResults.map(item => <p>{item.item.title}</p>)}
+                    <div className={`bg-white shadow-2xl w-full h-fit absolute mt-4 rounded p-4 z-10 ${searchValue ? 'visible' : 'invisible'}`}>
+                        {
+                            searchResults.length === 0 ?
+                                <p>Loading...</p> :
+                                searchResults.map(item => <p>{item.item.name}</p>)
+                        }
                     </div>
                 </div>
             </div>
@@ -84,18 +90,19 @@ const HomePage = () => {
             </div>
 
             {/* Badge Section */}
-            <div className="p-12 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
+            <div className="p-12 flex flex-row flex-wrap gap-12 w-full shadow-2xl rounded-md">
                 {
-                    blogs.map(() => (
-                        <div className="avatar hover:bg-slate-300 transition-colors px-3 py-2 rounded indicator">
-                            <span className="relative flex h-3 w-3 indicator-item">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-                            </span>
-                            <div className="w-24 rounded">
-                                <img src="https://cdnv2.tgdd.vn/mwg-static/common/Common/64/d1/64d11a09c75ea322dbc547739886e1d5.png" />
+                    PRODUCT_BADGE_LIST.map((badge) => (
+                        <button className="avatar indicator bg-transparent p-4 hover:bg-slate-50 rounded transition-all">
+                            {badge.tag && <span className="indicator-item badge badge-secondary bg-red-400 border-none capitalize">{badge.tag}</span>}
+                            <div className="h-20 w-20 rounded-lg !overflow-visible">
+                                <img
+                                    alt={badge.name}
+                                    src={badge.image}
+                                />
+                                <p className="capitalize font-medium">{badge.name}</p>
                             </div>
-                        </div>
+                        </button>
                     ))
                 }
             </div>
@@ -105,10 +112,10 @@ const HomePage = () => {
                     <>
                         {products[productCategory].map((product: any) => {
                             return (
-                                <div className="flex flex-col gap-4">
+                                <div className="flex flex-col gap-4" key={product.name}>
                                     <h2 className="text-2xl font-bold capitalize">{product.category}</h2>
                                     <div className="grid grid-cols-4 gap-8">
-                                        <ProductCard />
+                                        <ProductCard name={product.name} price={product.price} createdAt={product.createdAt} type={product.product_type} />
                                     </div>
                                 </div>
                             );
@@ -155,18 +162,18 @@ const HomePage = () => {
                             <TabsTrigger value="Purchase consultation">Purchase consultation</TabsTrigger>
                         </TabsList>
                         <TabsContent value="Promotion">
-                            <div className="flex flex-row flex-wrap gap-4 w-full">
+                            <div className="grid grid-cols-4 gap-4 w-full">
                                 {
-                                    blogs.map(() => {
+                                    BLOGS_LIST.OFFERS.map((blog) => {
                                         return (
-                                            <div className="card card-compact bg-base-100 w-56 shadow-xl">
+                                            <div className="card card-compact bg-base-100 shadow-xl">
                                                 <figure>
                                                     <img
-                                                        src="https://cdnv2.tgdd.vn/mwg-static/dmx/News/Thumb/1563642/khuyen-mai-laptop-danh-cho-hoc-sinh-sinh-vien638670849824776071.jpg"
+                                                        src={blog.banner}
                                                         alt="Shoes" />
                                                 </figure>
                                                 <div className="card-body">
-                                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                                    <p>{blog.title}</p>
                                                 </div>
                                             </div>
                                         )
@@ -175,18 +182,18 @@ const HomePage = () => {
                             </div>
                         </TabsContent>
                         <TabsContent value="Purchase consultation">
-                            <div className="flex flex-row flex-wrap gap-4">
+                            <div className="grid grid-cols-4 gap-4 w-full">
                                 {
-                                    blogs.map(() => {
+                                    BLOGS_LIST.PROPOSALS.map((blog) => {
                                         return (
-                                            <div className="card card-compact bg-base-100 w-56 shadow-xl">
+                                            <div className="card card-compact bg-base-100 shadow-xl">
                                                 <figure>
                                                     <img
-                                                        src="https://cdnv2.tgdd.vn/mwg-static/dmx/News/Thumb/551234/top-tivi-32-inch638664879552627889.jpg"
+                                                        src={blog.banner}
                                                         alt="Shoes" />
                                                 </figure>
                                                 <div className="card-body">
-                                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                                    <p>{blog.title}</p>
                                                 </div>
                                             </div>
                                         )
@@ -195,7 +202,7 @@ const HomePage = () => {
                             </div>
                         </TabsContent>
                     </Tabs>
-                    <p className="text-blue-500 hover:underline text-center w-full mt-4">more...</p>
+                    <p className="text-blue-600 hover:underline text-center w-full mt-4 font-medium capitalize">more...</p>
                 </div>
             </div>
 
@@ -204,11 +211,11 @@ const HomePage = () => {
                 <header>
                     <h2 className="text-2xl font-bold capitalize">People also find</h2>
                 </header>
-                <div className="p-8 flex flex-row flex-wrap gap-4 w-full shadow-2xl rounded-md">
+                <div className="p-8 flex flex-row flex-wrap gap-x-2 gap-y-4 w-full shadow-2xl rounded-md">
                     {
-                        blogs.map(() => {
+                        ALSO_FIND_KEYWORDS.map((keyword: string) => {
                             return (
-                                <div className="badge badge-ghost badge-lg">iPhone 15</div>
+                                <div className="badge badge-ghost badge-lg p-3">{keyword}</div>
                             )
                         })
                     }

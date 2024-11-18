@@ -7,7 +7,7 @@ import {
   SelectValue,
   SelectLabel,
   SelectGroup
-} from "@/components/ui/select"
+} from "@/components/ui/select";
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner';

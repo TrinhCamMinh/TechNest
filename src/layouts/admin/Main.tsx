@@ -1,16 +1,13 @@
 import { Outlet } from 'react-router-dom';
 import { CustomSideBar } from '@/components'
-import { SidebarProvider } from "@/components/ui/sidebar"
 
 const Main = () => {
     return (
-        <div className="h-full grid grid-cols-8">
-            <aside className='col-span-1 bg-blue-400'>
-                {/* <SidebarProvider>
-                    <CustomSideBar />
-                </SidebarProvider> */}
+        <div className="w-full h-full flex flex-row">
+            <aside className='grow'>
+                <CustomSideBar />
             </aside>
-            <main className='col-span-7 container'> 
+            <main className='grow-[2] container pr-4'> 
                 <Outlet />
             </main>
         </div>

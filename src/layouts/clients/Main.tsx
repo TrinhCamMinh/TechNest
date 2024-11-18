@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 const Main = () => {
     return (
-        <div className="h-full flex flex-col justify-between gap-2">
+        <div className="h-full w-full flex flex-col justify-between gap-2">
             <nav>
                 <div role="alert" className="alert alert-info text-white font-bold rounded-none flex justify-center items-center">
                     <svg

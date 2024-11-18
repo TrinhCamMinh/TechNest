@@ -9,6 +9,13 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+
 export const MobilePhoneFormStrategy: FormStrategy = {
     renderForm: function (mode: string, data: Record<string, any>): JSX.Element {
         // Get the productId param from the URL.
@@ -247,290 +254,272 @@ export const MobilePhoneFormStrategy: FormStrategy = {
         return (
             <>
                 <Toaster richColors position="top-right" />
-                <form className="h-full flex flex-col gap-8">
-                    <label className="input input-bordered flex items-center gap-2">
-                        Id
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.id : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? IdRef : undefined} />
-                    </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Price
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
-                    </label>
+                <Accordion type="multiple">
+                    <AccordionItem value="config">
+                        <AccordionTrigger>Configurations and Memory</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Id
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.id : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? IdRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        OS
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.os : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? osRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Price
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        CPU Processor
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.cpu_processer : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? cpuProcesserRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                OS
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.os : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? osRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        CPU speed
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.cpu_speed : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? cpuSpeedRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                CPU Processor
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.cpu_processer : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? cpuProcesserRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        GPU processor
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.gpu_processor : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? gpuProcessorRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                CPU speed
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.cpu_speed : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? cpuSpeedRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Ram
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.ram : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? ramRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                GPU processor
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.gpu_processor : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? gpuProcessorRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Storage Capacity
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.storage_capacity : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? storageCapacityRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Ram
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.ram : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? ramRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="camera">
+                        <AccordionTrigger>Camera and Screen</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Storage Capacity
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.storage_capacity : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? storageCapacityRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Available Storage Capacity
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3759172338. */}
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1078780428.
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.available_storage_capacity : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? availableStorageCapacityRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Available Storage Capacity
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.available_storage_capacity : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? availableStorageCapacityRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Contact List Limit
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2325032021. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1185567000. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.contact_list_limit : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? contactListLimitRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Contact List Limit
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.contact_list_limit : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? contactListLimitRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Back Camera Resolution
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1532530478. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2153896251. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraResolutionRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Back Camera Resolution
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraResolutionRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Back Camera Modes
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1983412058. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_modes : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraModesRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Back Camera Modes
+                                {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1983412058. */}
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_modes : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraModesRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Back Camera Flash
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2689929985. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_flash : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraFlashRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Back Camera Flash
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_flash : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraFlashRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Back Camera Functionalites
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:154424901. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1276100554. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:227981457. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1520289846. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_functionalites : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraFunctionalitesRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Back Camera Functionalites
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.back_camera_functionalites : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? backCameraFunctionalitesRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Front Camera Resolution
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.front_camera_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? frontCameraResolutionRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Front Camera Resolution
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.front_camera_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? frontCameraResolutionRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Front Camera Functionalities
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3696898838. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.front_camera_functionalities : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? frontCameraFunctionalitiesRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Front Camera Functionalities
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.front_camera_functionalities : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? frontCameraFunctionalitiesRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Screen Technology
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_technology : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenTechnologyRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Screen Technology
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_technology : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenTechnologyRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Screen Resolution
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3253462158. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2357611810. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenResolutionRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Screen Resolution
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_resolution : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenResolutionRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="battery">
+                        <AccordionTrigger>Battery and Charge</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Screen Size
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenSizeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Screen Size
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1837973569. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:549745027. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.screen_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? screenSizeRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Max Brightness
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.max_brightness : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? maxBrightnessRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Max Brightness
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3185132001. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:4107304147. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.max_brightness : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? maxBrightnessRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Touch Glass
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.touch_glass : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? touchGlassRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Touch Glass
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1852563534. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.touch_glass : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? touchGlassRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Battery Size
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batterySizeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Battery Size
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:4243071180. */}
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2596125200.
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batterySizeRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Battery Type
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_type : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batteryTypeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Battery Type
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1186424897. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3979539042. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_type : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batteryTypeRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Max Charge Support
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.max_charge_support : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? maxChargeSupportRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Max Charge Support
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2586325298. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.max_charge_support : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? maxChargeSupportRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Battery Technology
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_technology : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batteryTechnologyRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="utility">
+                        <AccordionTrigger>Utilities</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Advance Security
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.advance_security : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? advanceSecurityRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Battery Technology
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1854292255. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.battery_technology : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? batteryTechnologyRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Special Funtionality
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.special_funtionality : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? specialFuntionalityRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Advance Security
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1648908438. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:928191607. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.advance_security : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? advanceSecurityRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Water Dust Resitance
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.water_dust_resistance : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? waterDustResitanceRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Special Funtionality
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:703142137. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3315360694. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2278035159. */}
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.special_funtionality : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? specialFuntionalityRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Record
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.record : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? recordRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Water Dust Resitance
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.water_dust_resistance : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? waterDustResitanceRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Movie
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.movie : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? movieRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Record
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:945927412. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3047380500. */}
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.record : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? recordRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Music
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.music : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? musicRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Movie
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3415789196. */}
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:423545550.
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.movie : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? movieRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Internet
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.internet : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? internetRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="connect">
+                        <AccordionTrigger>Connects</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                SIM
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.sim : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? simRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Music
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3790911078. */}
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1517296965.
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.music : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? musicRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Wifi
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.wifi : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? wifiRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Internet
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.internet : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? internetRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                GPS
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.gps : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? gpsRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        SIM
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.sim : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? simRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Bluetooth
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.bluetooth : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? bluetoothRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Wifi
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.wifi : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? wifiRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Charge Connect Port
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.charge_connect_port : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? chargeConnectPortRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        GPS
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.gps : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? gpsRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Headphone Jack
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.headphone_jack : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? headphoneJackRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Bluetooth
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2457112147. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:829804530. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:3273351872. */}
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.bluetooth : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? bluetoothRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Other Ports
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.other_ports : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? otherPortsRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="design">
+                        <AccordionTrigger>Design and Material</AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Design
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.design : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? designRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Charge Connect Port
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2082733852. */}
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2080322441.
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1139796616. */}
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:803514927. */}
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.charge_connect_port : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? chargeConnectPortRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Materials
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.material : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? materialsRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Headphone Jack
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.headphone_jack : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? headphoneJackRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Weight Size
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.weight_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? weightSizeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Other Ports
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:1591693182. */}
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.other_ports : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? otherPortsRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Launch Year
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.launch_year : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? launchYearRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Design
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.design : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? designRef : undefined} />
-                    </label>
+                            <Select
+                                disabled={isViewOnly}
+                                value={isPrefilledDataFromDb ? selectedCategory : ''}
+                                onValueChange={(selectedOption: string) => setSelectedCategory(selectedOption)}
+                            >
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Category" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {
+                                        categiesList.map((category: Record<string, any>) => {
+                                            return (
+                                                <SelectItem key={category.id} value={category.id}>{category.data.name}</SelectItem>
+                                            )
+                                        })
+                                    }
+                                </SelectContent>
+                            </Select>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Materials
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.material : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? materialsRef : undefined} />
-                    </label>
+                {mode.toUpperCase() === FormMode.UPDATE && <button type="button" className="btn btn-success capitalize" onClick={handleUpdateProduct}>save</button>}
+                {mode.toUpperCase() === FormMode.CREATE && <button type="button" className="btn btn-success capitalize" onClick={handleInsertNewProduct}>create</button>}
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Weight Size
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.weight_size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? weightSizeRef : undefined} />
-                    </label>
-
-                    <label className="input input-bordered flex items-center gap-2">
-                        Launch Year
-                        {/* Suggested code may be subject to a license. Learn more: ~LicenseLog:2451410036. */}
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.launch_year : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? launchYearRef : undefined} />
-                    </label>
-
-                    <Select
-                        disabled={isViewOnly}
-                        value={isPrefilledDataFromDb ? selectedCategory : ''}
-                        onValueChange={(selectedOption: string) => setSelectedCategory(selectedOption)}
-                    >
-                        <SelectTrigger>
-                            <SelectValue placeholder="Category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {
-                                categiesList.map((category: Record<string, any>) => {
-                                    return (
-                                        <SelectItem key={category.id} value={category.id}>{category.data.name}</SelectItem>
-                                    )
-                                })
-                            }
-                        </SelectContent>
-                    </Select>
-
-                    {mode.toUpperCase() === FormMode.UPDATE && <button type="button" className="btn btn-success capitalize" onClick={handleUpdateProduct}>save</button>}
-                    {mode.toUpperCase() === FormMode.CREATE && <button type="button" className="btn btn-success capitalize" onClick={handleInsertNewProduct}>create</button>}
-                </form>
             </>
         )
     }

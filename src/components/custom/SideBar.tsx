@@ -41,7 +41,7 @@ const items = [
 
 const SideBar = () => {
     return (
-        <Sidebar>
+        <Sidebar collapsible="offcanvas">
             <SidebarContent>
             <SidebarGroup>
                 <SidebarGroupLabel>Application</SidebarGroupLabel>
@@ -50,10 +50,10 @@ const SideBar = () => {
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton asChild>
-                                <a href={item.url}>
+                                <button>
                                     <item.icon />
                                     <span>{item.title}</span>
-                                </a>
+                                </button>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}

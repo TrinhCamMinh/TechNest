@@ -1,5 +1,6 @@
 import "./DualRangeSlider.css";
 import { useCallback, useEffect, useState, useRef, MutableRefObject } from "react";
+import { formatCurrency } from "@/lib/utils";
 
 const DualRangeSlider = ({ min, max, onChange }: { min: number, max: number, onChange: (value: { min: number, max: number }) => void }) => {
     const [minVal, setMinVal] = useState(min);
@@ -71,8 +72,8 @@ const DualRangeSlider = ({ min, max, onChange }: { min: number, max: number, onC
             <div className="slider">
                 <div className="slider__track" />
                 <div ref={range} className="slider__range" />
-                <div className="slider__left-value">{minVal}</div>
-                <div className="slider__right-value">{maxVal}</div>
+                <div className="slider__left-value">{formatCurrency(minVal)}</div>
+                <div className="slider__right-value">{formatCurrency(maxVal)}</div>
             </div>
         </div>
     );

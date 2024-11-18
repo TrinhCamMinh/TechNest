@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { customAlphabet } from 'nanoid';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
+import { PRODUCT_TYPE } from "@/constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -40,3 +41,29 @@ export const ObjectGroupBy = (array: Array<any>, groupField: string) => {
   return result;
 };
 
+
+const CURRENCY_FORMATTER = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+export const formatCurrency = (number: number) => {
+  return CURRENCY_FORMATTER.format(number);
+};
+
+export const returnProductImagePath = (productType: string) => {
+  const TelImagePath: string = '/src/assets/google-tv-aqua-qled-4k-65-inch-aqt65s800ux-thumb-638645971165423373-550x340.jpg';
+  const LapImagePath: string = '/src/assets/macbook-air-m1-2020-gray-600x600.jpg';
+  const MobImagePath: string = '/src/assets/iphone-16-pro-max-black-thumb-600x600.jpg';
+  const KeyboardImagePath: string = '/src/assets/bo-ban-phim-chuot-khong-day-logitech-mk240-thumb-2-600x600.jpg';
+
+  switch (productType) {
+    case PRODUCT_TYPE.KEYBOARD:
+      return KeyboardImagePath;
+    case PRODUCT_TYPE.MOBILE_PHONE:
+      return MobImagePath;
+    case PRODUCT_TYPE.LAPTOP:
+      return LapImagePath;
+    case PRODUCT_TYPE.TELEVISION:
+      return TelImagePath;
+    default:
+      break;
+  }
+  return '';
+}

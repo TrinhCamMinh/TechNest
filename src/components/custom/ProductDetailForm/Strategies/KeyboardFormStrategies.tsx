@@ -11,6 +11,12 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion";
 import { db } from "@/configs/firebase";
 import { CATEGORY_COLLECTION_NAME } from "@/constants";
 
@@ -157,89 +163,103 @@ export const KeyboardFormStrategy: FormStrategy = {
         return (
             <>
                 <Toaster richColors position="top-right" />
-                <form className="h-full flex flex-col gap-8">
-                    <label className="input input-bordered flex items-center gap-2">
-                        Id
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.id : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? idRef : undefined} />
-                    </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Price
-                        <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
-                    </label>
+                <Accordion type="multiple">
+                    <AccordionItem value="specifications">
+                        <AccordionTrigger>
+                            <h2 className="text-base font-bold uppercase">Specifications</h2>
+                        </AccordionTrigger>
+                        <AccordionContent className="AccordionContent h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Id
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.id : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? idRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Adapt
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.adapt : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? adaptRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Price
+                                <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Connect Way
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_way : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectWayRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Adapt
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.adapt : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? adaptRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Connect Distance
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_dinstance : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectDistanceRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Connect Way
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_way : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectWayRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Keyborad Type
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.keyboard_type : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keyboardTypeRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Connect Distance
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.connect_dinstance : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? connectDistanceRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Keycaps Material
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.keycaps_material : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keycapsMaterialRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Keyborad Type
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.keyboard_type : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keyboardTypeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Other functionalities
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.other_functionalities : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? otherFunctionalitiesRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Keycaps Material
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.keycaps_material : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? keycapsMaterialRef : undefined} />
+                            </label>
+                        </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="other">
+                        <AccordionTrigger>
+                            <h2 className="text-base font-bold uppercase">Other information</h2>
+                        </AccordionTrigger>
+                        <AccordionContent className="h-full flex flex-col gap-8">
+                            <label className="input input-bordered flex items-center gap-2">
+                                Other functionalities
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.other_functionalities : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? otherFunctionalitiesRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Size
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? sizeRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Size
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.size : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? sizeRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Manufacture Place
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.manufacture_place : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? manufacturePlaceRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Manufacture Place
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.manufacture_place : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? manufacturePlaceRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Brand of
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand_of : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandOfRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Brand of
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand_of : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandOfRef : undefined} />
+                            </label>
 
-                    <label className="input input-bordered flex items-center gap-2">
-                        Brand
-                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandRef : undefined} />
-                    </label>
+                            <label className="input input-bordered flex items-center gap-2">
+                                Brand
+                                <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandRef : undefined} />
+                            </label>
 
-                    <Select
-                        disabled={isViewOnly}
-                        value={isPrefilledDataFromDb ? selectedCategory : ''}
-                        onValueChange={(selectedOption: string) => setSelectedCategory(selectedOption)}
-                    >
-                        <SelectTrigger>
-                            <SelectValue placeholder="Category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            {
-                                categiesList.map((category: Record<string, any>) => {
-                                    return (
-                                        <SelectItem key={category.id} value={category.id}>{category.data.name}</SelectItem>
-                                    )
-                                })
-                            }
-                        </SelectContent>
-                    </Select>
+                            <Select
+                                disabled={isViewOnly}
+                                value={isPrefilledDataFromDb ? selectedCategory : ''}
+                                onValueChange={(selectedOption: string) => setSelectedCategory(selectedOption)}
+                            >
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Category" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {
+                                        categiesList.map((category: Record<string, any>) => {
+                                            return (
+                                                <SelectItem key={category.id} value={category.id}>{category.data.name}</SelectItem>
+                                            )
+                                        })
+                                    }
+                                </SelectContent>
+                            </Select>
+                        </AccordionContent>
+                    </AccordionItem>
+                </Accordion>
 
-                    {mode.toUpperCase() === FormMode.UPDATE && <button type="button" className="btn btn-success capitalize" onClick={handleUpdateProduct}>save</button>}
-                    {mode.toUpperCase() === FormMode.CREATE && <button type="button" className="btn btn-success capitalize" onClick={handleInsertNewProduct}>create</button>}
-                </form>
+                {mode.toUpperCase() === FormMode.UPDATE && <button type="button" className="btn btn-success capitalize" onClick={handleUpdateProduct}>save</button>}
+                {mode.toUpperCase() === FormMode.CREATE && <button type="button" className="btn btn-success capitalize" onClick={handleInsertNewProduct}>create</button>}
             </>
         )
     }

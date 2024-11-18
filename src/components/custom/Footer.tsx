@@ -25,7 +25,7 @@ const Footer = () => {
                 <h6 className="footer-title">Newsletter</h6>
                 <fieldset className="form-control w-80">
                     <label className="label">
-                        <span className="label-text">Enter your email address</span>
+                        <span className="label-text">technest@gmail.com</span>
                     </label>
                     <div className="join">
                         <input
