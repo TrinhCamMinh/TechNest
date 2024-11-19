@@ -1,14 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
-import { HomePage as AdminHomePage, Login, ProductDetail} from '@/pages/admin';
-import { HomePage as ClientHomePage} from '@/pages/clients';
-import { MainLayout as AdminMainLayout} from '@/layouts/admin'
+import { HomePage as AdminHomePage, Login, ProductDetail } from '@/pages/admin';
+import { HomePage as ClientHomePage, ProductDetailPage as ClientProductDetailPage } from '@/pages/clients';
+import { MainLayout as AdminMainLayout } from '@/layouts/admin'
 import { MainLayout as ClientMainLayout } from '@/layouts/clients';
 
 function App() {
-	return (
-		<Routes>
+    return (
+        <Routes>
             <Route path='/' element={<ClientMainLayout />}>
                 <Route index element={<ClientHomePage />} />
+                <Route path='detail/:productId' element={<ClientProductDetailPage />} />
             </Route>
 
             <Route path='/admin' element={<AdminMainLayout />}>
@@ -18,7 +19,7 @@ function App() {
 
             <Route path='/login' element={<Login />} />
         </Routes>
-	);
+    );
 }
 
 export default App;

@@ -13,7 +13,6 @@ export const fireBaseObject = {
                 listOfProduct.push({ id, ...product })
             });
             console.info(`listOfProduct: ${JSON.stringify(listOfProduct)}`)
-
         } catch (error) {
             console.error("Error while fetching list of product " + (error as Error).message);
             return [];

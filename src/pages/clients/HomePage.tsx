@@ -115,7 +115,7 @@ const HomePage = () => {
                                 <div className="flex flex-col gap-4" key={product.name}>
                                     <h2 className="text-2xl font-bold capitalize">{product.category}</h2>
                                     <div className="grid grid-cols-4 gap-8">
-                                        <ProductCard name={product.name} price={product.price} createdAt={product.createdAt} type={product.product_type} />
+                                        <ProductCard id={product.id} name={product.name} price={product.price} createdAt={product.createdAt} type={product.product_type} />
                                     </div>
                                 </div>
                             );
