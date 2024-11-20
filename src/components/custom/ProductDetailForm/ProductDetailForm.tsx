@@ -1,6 +1,5 @@
 import { fireBaseObject } from "@/features/product-crud";
 import { FormMode, FormStrategy } from "@/interfaces";
-import { getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 interface ProductDetailFormProps {

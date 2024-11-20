@@ -33,7 +33,6 @@ import { useState } from "react";
 import { exportToCSV } from '@/lib/utils';
 import { Toaster, toast } from 'sonner';
 import { MockData } from "@/mocks/data";
-import { User } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
