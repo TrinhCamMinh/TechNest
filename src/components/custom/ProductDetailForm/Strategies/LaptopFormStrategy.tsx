@@ -54,6 +54,7 @@ export const LaptopFormStrategy: FormStrategy = {
         const weightRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const materialRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
         const priceRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
+        const brandRef: MutableRefObject<HTMLInputElement | null> = useRef(null);
 
         const [selectedCategory, setSelectedCategory] = useState<string>('');
         const [categiesList, setCategiesList] = useState<Array<Record<string, any>>>([]);
@@ -104,6 +105,7 @@ export const LaptopFormStrategy: FormStrategy = {
                     weight: weightRef.current?.value,
                     material: materialRef.current?.value,
                     price: priceRef.current?.value,
+                    brand: brandRef.current?.value,
                 };
 
                 console.info(`Updating ${productId}`, newData);
@@ -155,7 +157,8 @@ export const LaptopFormStrategy: FormStrategy = {
                     weight: weightRef.current?.value,
                     material: materialRef.current?.value,
                     price: priceRef.current?.value,
-                    product_type: 'laptop'
+                    product_type: 'laptop',
+                    brand: brandRef.current?.value,
                 };
 
                 console.info("Inserting new laptop product: " + JSON.stringify(newData));
@@ -223,6 +226,10 @@ export const LaptopFormStrategy: FormStrategy = {
                     <label className="input input-bordered flex items-center gap-2">
                         Price
                         <input type="number" defaultValue={isPrefilledDataFromDb ? data.price : 0} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? priceRef : undefined} />
+                    </label>
+                    <label className="input input-bordered flex items-center gap-2">
+                        Brand
+                        <input type="text" defaultValue={isPrefilledDataFromDb ? data.brand : ''} className="grow" placeholder="Daisy" readOnly={isViewOnly} ref={isEdit ? brandRef : undefined} />
                     </label>
                     <Select
                         disabled={isViewOnly}

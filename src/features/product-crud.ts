@@ -26,11 +26,23 @@ export const fireBaseObject = {
         // docSnap.data() will be undefined if there is no such document!
         return { ...docSnap.data(), id }
     },
-    insertProduct: async (insertData: Record<string, any>) => await addDoc(collection(db, PRODUCT_COLLECTION_NAME), {
-        ...insertData,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp()
-    }),
+    insertProduct: async (insertData: Record<string, any>) => {
+        const data = {
+            ...insertData,
+            name: insertData.name.toLowerCase(),
+            product_type: insertData.product_type.toLowerCase(),
+            brand: insertData.brand.toLowerCase(),
+            price: Number(insertData.price)
+        }
+
+        console.log('inserting data: ', data)
+
+        await addDoc(collection(db, PRODUCT_COLLECTION_NAME), {
+            ...data,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp()
+        })
+    },
     updateProduct: async (documentId: string, updateData: Record<string, any>) => await updateDoc(doc(db, PRODUCT_COLLECTION_NAME, documentId), { ...updateData, updatedAt: serverTimestamp() }),
     deleteProduct: async (documentId: string) => await deleteDoc(doc(db, PRODUCT_COLLECTION_NAME, documentId))
 }

@@ -51,7 +51,7 @@ const Login = () => {
     }
 
     return (
-        <section className="h-full relative bg-gray-900 py-10 sm:py-16 lg:py-24">
+        <section className="w-full h-full relative bg-gray-900 py-10 sm:py-16 lg:py-24">
             <div className="absolute inset-0">
                 <img className="h-full w-full object-cover" src="https://cdn.rareblocks.xyz/collection/celebration/images/signin/2/man-eating-noodles.jpg" alt="" />
             </div>

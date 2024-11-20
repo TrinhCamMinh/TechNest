@@ -36,6 +36,7 @@ const HomePage = () => {
     }
 
     useEffect(() => {
+        setSearchResults([]) // reset data
         console.info(`User is searching for ${debouncedSearchTerm}`)
 
         if (debouncedSearchTerm) {
@@ -110,7 +111,7 @@ const HomePage = () => {
             {
                 Object.entries(products).map(([key, value]) => {
                     return (
-                        <div className="flex flex-col gap-2" key={key}>
+                        <div className="flex flex-col gap-4" key={key}>
                             <h2 className="text-2xl font-bold capitalize">{key}</h2>
                             <div className="grid grid-cols-4 gap-4">
                                 {

@@ -57,7 +57,6 @@ const ProductDetail = () => {
     useEffect(() => {
         handleFetchProduct(productId ?? '0');
 
-
         Object.entries(product)
             .filter(([key]) => !hiddenFields.includes(key)) // Filter out hidden fields
             .map(([key, value]) => {
@@ -151,7 +150,7 @@ const ProductDetail = () => {
                             </Select>
                         </div>
 
-                        <p className="text-2xl text-red-600 font-bold uppercase">{formatCurrency(123456)}</p>
+                        <p className="text-2xl text-red-600 font-bold uppercase">{formatCurrency(product.price)}</p>
 
                         <div className="shadow-xl rounded-md border-2 border-solid text-sm">
                             <header className="bg-[#f9fafb] p-3">

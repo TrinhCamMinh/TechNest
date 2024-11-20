@@ -1,11 +1,10 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:653705595.
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { customAlphabet } from 'nanoid';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { PRODUCT_TYPE } from "@/constants";
-
-import Demo from '@/assets/carousel/keyboard/ban-phim-bluetooth-asus-marshmallow-kw100-xanh-600x600.jpg';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -44,7 +43,10 @@ export const ObjectGroupBy = (array: Array<any>, groupField: string) => {
 };
 
 
-const CURRENCY_FORMATTER = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+const CURRENCY_FORMATTER = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+});
 export const formatCurrency = (number: number) => {
   return CURRENCY_FORMATTER.format(number);
 };
@@ -70,7 +72,7 @@ export const returnProductImagePath = (productType: string) => {
   return '';
 }
 
-export const returnProductCarouselImagePath = (productType:string): string[] => {
+export const returnProductCarouselImagePath = (productType: string): string[] => {
   const KeyboardCarouselImagePath = [
     '/src/assets/carousel/keyboard/ban-phim-bluetooth-asus-marshmallow-kw100-xanh-600x600.jpg',
     '/src/assets/carousel/keyboard/ban-phim-bluetooth-logitech-k380s-hong-thumb-600x600.jpg',

@@ -15,7 +15,7 @@ import { useDebounce } from "@/hooks";
 import { db } from '@/configs/firebase';
 
 const Filter = () => {
-    const MIN_PRICE_RANGE = 300_000;
+    const MIN_PRICE_RANGE = 10;
     const MAX_PRICE_RANGE = 90_000_000;
     const DELAY_AMOUNT = 1000 // 1s delay
 
