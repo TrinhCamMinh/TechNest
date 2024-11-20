@@ -7,11 +7,12 @@ const ProductCard = ({ id, name, price, type, createdAt }: { id: string, name: s
     const imagePath: string = returnProductImagePath(type);
     return (
         <Link to={`detail/${id}`}>
-            <button className="card card-compact bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 !text-start">
+            <div className="h-5/6 card card-compact bg-base-100 shadow-xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 !text-start cursor-pointer">
                 <figure className="p-2 rounded">
                     <img
                         src={imagePath}
                         alt={name}
+                        className="h-full"
                         onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                             e.currentTarget.onerror = null; // Prevents infinite loop if fallback also fails
                             e.currentTarget.src = ImagePlaceHolder; // Replace with your fallback image path
@@ -19,11 +20,11 @@ const ProductCard = ({ id, name, price, type, createdAt }: { id: string, name: s
                     />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">
-                        {name}
+                    <h2 className="card-title line-clamp-3">
+                        <p className="line-clamp-3">{name}</p>
                         <div className="badge badge-secondary">NEW</div>
                     </h2>
-                    <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <p className="line-clamp-3">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                     <div className="card-actions justify-start">
                         <div className="badge badge-accent badge-outline">{type}</div>
                         <div className="badge badge-primary badge-outline">{createdAt.toDate().toDateString()}</div>
@@ -33,7 +34,7 @@ const ProductCard = ({ id, name, price, type, createdAt }: { id: string, name: s
                         <button className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>
-            </button>
+            </div>
         </Link>
     )
 }

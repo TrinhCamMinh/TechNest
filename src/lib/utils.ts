@@ -5,6 +5,8 @@ import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
 import { PRODUCT_TYPE } from "@/constants";
 
+import Demo from '@/assets/carousel/keyboard/ban-phim-bluetooth-asus-marshmallow-kw100-xanh-600x600.jpg';
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }

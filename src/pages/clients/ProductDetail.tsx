@@ -120,7 +120,7 @@ const ProductDetail = () => {
                                         .filter(([key]) => !hiddenFields.includes(key)) // Filter out hidden fields
                                         .map(([key, value]) => {
                                             return (
-                                                <div className="space-y-1">
+                                                <div key={key} className="space-y-1">
                                                     <Label htmlFor={key} className="capitalize">
                                                         {key.replace('_', ' ')}
                                                     </Label>

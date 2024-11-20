@@ -5,6 +5,9 @@ import { FormMode, FormStrategy } from '@/interfaces';
 import { returnProductImagePath } from '@/lib/utils';
 import { useParams, useSearchParams } from "react-router-dom";
 import ImagePlaceHolder from '@/assets/placeholder.svg';
+import { MobilePhoneFormStrategy } from '@/components/custom/ProductDetailForm/Strategies/MobilePhoneFormStrategy';
+import { LaptopFormStrategy } from '@/components/custom/ProductDetailForm/Strategies/LaptopFormStrategy';
+import { TelevisionFormStrategy } from '@/components/custom/ProductDetailForm/Strategies/TelevisionFormStrategy';
 
 const ProductDetail = () => {
     let { productId } = useParams();
@@ -17,6 +20,12 @@ const ProductDetail = () => {
         switch (productType) {
             case PRODUCT_TYPE.KEYBOARD:
                 return KeyboardFormStrategy;
+            case PRODUCT_TYPE.MOBILE_PHONE:
+                return MobilePhoneFormStrategy;
+            case PRODUCT_TYPE.LAPTOP:
+                return LaptopFormStrategy;
+            case PRODUCT_TYPE.TELEVISION:
+                return TelevisionFormStrategy;
             default:
                 break;
         }
@@ -34,11 +43,11 @@ const ProductDetail = () => {
                     <ProductDetailForm strategy={strategy()} mode={mode} documentId={productId ?? 'null'} />
                 </main>
             </div>
-            <aside className="col-span-2 self-center">
+            <aside className="col-span-2">
                 <img
                     src={imagePath}
                     alt="product image"
-                    className='h-3/6 w-full'
+                    className='w-full mt-8'
                     onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                         e.currentTarget.onerror = null; // Prevents infinite loop if fallback also fails
                         e.currentTarget.src = ImagePlaceHolder; // Replace with your fallback image path

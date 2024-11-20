@@ -73,7 +73,17 @@ export const columns: ColumnDef<any>[] = [
     },
     {
         accessorKey: "createdAt",
-        header: "Created At",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    CreatedAt
+                    <ArrowUpDown />
+                </Button>
+            )
+        },
         cell: ({ row }) => {
             const createdAt: Timestamp = row.getValue("createdAt");
             const formatted = createdAt.toDate().toDateString();
@@ -82,7 +92,17 @@ export const columns: ColumnDef<any>[] = [
     },
     {
         accessorKey: "updatedAt",
-        header: "Updated At",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+                >
+                    UpdatedAt
+                    <ArrowUpDown />
+                </Button>
+            )
+        },
         cell: ({ row }) => {
             const updatedAt: Timestamp = row.getValue("updatedAt");
             const formatted = updatedAt.toDate().toDateString();
@@ -104,7 +124,7 @@ export const columns: ColumnDef<any>[] = [
                         return;
                     }
                     // handle remove item from database here...
-                    fireBaseObject.deleteProduct("KgY4oO38MfIDTy1Bnbqp");
+                    fireBaseObject.deleteProduct(productId);
                     toast.success("Delete product successfully");
                 } catch (error) {
                     const errorMessage = (error as Error).message;

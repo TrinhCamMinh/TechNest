@@ -79,7 +79,7 @@ const HomePage = () => {
                         {
                             searchResults.length === 0 ?
                                 <p>Loading...</p> :
-                                searchResults.map(item => <p>{item.item.name}</p>)
+                                searchResults.map(item => <p key={item.item.name}>{item.item.name}</p>)
                         }
                     </div>
                 </div>
@@ -93,7 +93,7 @@ const HomePage = () => {
             <div className="p-12 flex flex-row flex-wrap gap-12 w-full shadow-2xl rounded-md">
                 {
                     PRODUCT_BADGE_LIST.map((badge) => (
-                        <button className="avatar indicator bg-transparent p-4 hover:bg-slate-50 rounded transition-all">
+                        <button key={badge.name} className="avatar indicator bg-transparent p-4 hover:bg-slate-50 rounded transition-all">
                             {badge.tag && <span className="indicator-item badge badge-secondary bg-red-400 border-none capitalize">{badge.tag}</span>}
                             <div className="h-20 w-20 rounded-lg !overflow-visible">
                                 <img
@@ -107,22 +107,25 @@ const HomePage = () => {
                 }
             </div>
 
-            {Object.keys(products).map((productCategory: string) => {
-                return (
-                    <>
-                        {products[productCategory].map((product: any) => {
-                            return (
-                                <div className="flex flex-col gap-4" key={product.name}>
-                                    <h2 className="text-2xl font-bold capitalize">{product.category}</h2>
-                                    <div className="grid grid-cols-4 gap-8">
-                                        <ProductCard id={product.id} name={product.name} price={product.price} createdAt={product.createdAt} type={product.product_type} />
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </>
-                );
-            })}
+            {
+                Object.entries(products).map(([key, value]) => {
+                    return (
+                        <div className="flex flex-col gap-2" key={key}>
+                            <h2 className="text-2xl font-bold capitalize">{key}</h2>
+                            <div className="grid grid-cols-4 gap-4">
+                                {
+                                    value.map((item: any) => {
+                                        return (
+                                            <ProductCard key={item.id} id={item.id} name={item.name} price={item.price} createdAt={item.createdAt} type={item.product_type} />
+
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    )
+                })
+            }
 
             <div className="divider"></div>
 
@@ -166,7 +169,7 @@ const HomePage = () => {
                                 {
                                     BLOGS_LIST.OFFERS.map((blog) => {
                                         return (
-                                            <div className="card card-compact bg-base-100 shadow-xl">
+                                            <div key={blog.title} className="card card-compact bg-base-100 shadow-xl">
                                                 <figure>
                                                     <img
                                                         src={blog.banner}
@@ -186,7 +189,7 @@ const HomePage = () => {
                                 {
                                     BLOGS_LIST.PROPOSALS.map((blog) => {
                                         return (
-                                            <div className="card card-compact bg-base-100 shadow-xl">
+                                            <div key={blog.title} className="card card-compact bg-base-100 shadow-xl">
                                                 <figure>
                                                     <img
                                                         src={blog.banner}
@@ -215,7 +218,7 @@ const HomePage = () => {
                     {
                         ALSO_FIND_KEYWORDS.map((keyword: string) => {
                             return (
-                                <div className="badge badge-ghost badge-lg p-3">{keyword}</div>
+                                <div key={keyword} className="badge badge-ghost badge-lg p-3">{keyword}</div>
                             )
                         })
                     }
