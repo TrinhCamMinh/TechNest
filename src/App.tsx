@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { HomePage as AdminHomePage, Login, ProductDetail } from '@/pages/admin';
-import { HomePage as ClientHomePage, ProductDetailPage as ClientProductDetailPage } from '@/pages/clients';
+import { HomePage as ClientHomePage, ProductDetailPage as ClientProductDetailPage, NotFoundPage } from '@/pages/clients';
 import { MainLayout as AdminMainLayout } from '@/layouts/admin'
 import { MainLayout as ClientMainLayout } from '@/layouts/clients';
 
@@ -18,6 +18,8 @@ function App() {
             </Route>
 
             <Route path='/login' element={<Login />} />
+
+            <Route path='*' element={<NotFoundPage />} />
         </Routes>
     );
 }
