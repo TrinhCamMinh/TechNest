@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const FIREBASE_API_KEY = import.meta.env.VITE_FIREBASE_API_KEY;
@@ -26,5 +26,9 @@ export const app = initializeApp(firebaseConfig);
 export const analytics = getAnalytics(app);
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+// apply the default browser preference language instead of explicitly setting it
+auth.useDeviceLanguage();
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
+export const provider = new GoogleAuthProvider();
+export const gitHubProvider = new GithubAuthProvider();
