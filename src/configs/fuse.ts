@@ -1,4 +1,6 @@
 export const clientSearchOptions = {
     includeScore: true,
-    keys: ['name', 'product_type', 'brand']
+    includeMatches: true,
+    threshold: 0.4,
+    keys: ['name', 'brand', 'product_type']
 }

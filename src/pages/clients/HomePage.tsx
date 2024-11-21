@@ -36,7 +36,6 @@ const HomePage = () => {
     }
 
     useEffect(() => {
-        setSearchResults([]) // reset data
         console.info(`User is searching for ${debouncedSearchTerm}`)
 
         if (debouncedSearchTerm) {
@@ -62,7 +61,7 @@ const HomePage = () => {
 
                 <div className="grow relative">
                     <label className="input input-bordered flex items-center gap-2">
-                        <input onChange={(e) => setSearchValue(e.target.value)} type="text" className="grow" placeholder="Search" />
+                        <input onChange={(e) => setSearchValue(e.target.value)} type="text" className="grow" placeholder="Seach product name, product type and brand ..." />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -79,7 +78,7 @@ const HomePage = () => {
                     <div className={`bg-white shadow-2xl w-full h-fit absolute mt-4 rounded p-4 z-10 ${searchValue ? 'visible' : 'invisible'}`}>
                         {
                             searchResults.length === 0 ?
-                                <p>Loading...</p> :
+                                <p>Searching...</p> :
                                 searchResults.map(item => <p key={item.item.name}>{item.item.name}</p>)
                         }
                     </div>
